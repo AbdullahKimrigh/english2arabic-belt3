@@ -1,6 +1,6 @@
 FROM node:10-alpine
 ENV NODE_ENV=production
-ENV API_ENDPOINT=3001
+ENV API_ENDPOINT=process.env.API_URL
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install --production --silent && mv node_modules ../

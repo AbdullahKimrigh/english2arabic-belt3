@@ -24,7 +24,8 @@ app.get("/", function (req, res) {
 
         responseString = responseString + `</table>`;
         res.send(responseString);
-      } else {
+      } 
+      else {
         console.log(err);
       }
     }
