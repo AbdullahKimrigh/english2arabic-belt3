@@ -31,7 +31,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     volumes:
-      - ./sql_scripts/:/docker-entrypoint-initdb.d/init.sql
+      - ./sql_scripts/:/docker-entrypoint-initdb.d
     networks:
       - private-network
 
