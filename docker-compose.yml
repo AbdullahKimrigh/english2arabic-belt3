@@ -31,9 +31,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
     volumes:
-      - db-data:/var/lib/postgresql/data
-      # to intialize the sql data
-      - ./sql_scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db-data:./init_sql_scripts/:/docker-entrypoint-initdb.d
     networks:
       - private-network
 
