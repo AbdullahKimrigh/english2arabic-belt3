@@ -4,7 +4,7 @@ services:
   web:
     build:
       context: ./web
-    command: nodemon index.js
+    command: node index.js
     volumes:
      - ./web:/app
     ports:
@@ -18,7 +18,7 @@ services:
   api:
     build:
       context: ./api
-    command: nodemon index.js
+    command: node index.js
     networks:
       - private-network
     depends_on:
