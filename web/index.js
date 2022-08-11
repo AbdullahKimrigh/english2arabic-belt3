@@ -1,5 +1,5 @@
-import express from "express";
-import request from "request";
+const express = require("express");
+const request = require("request");
 
 const app = express();
 const port = 3000;
@@ -22,10 +22,9 @@ app.get("/", function (req, res) {
             responseString +
             `<tr><td>${c_cap[i].english}</td><td>${c_cap[i].arabic}</td></tr>`;
 
-            responseString = responseString + `</table>`;
-            res.send(responseString);
-      } 
-      else {
+        responseString = responseString + `</table>`;
+        res.send(responseString);
+      } else {
         console.log(err);
       }
     }
