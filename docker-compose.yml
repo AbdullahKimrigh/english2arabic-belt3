@@ -17,7 +17,7 @@ services:
     build:
       context: ./api
     environment:
-      - CONNECTON_STRING=postgres://demo_user:demo_user@db/demo_db
+      - CONNECTON_STRING=postgres://postgres:postgres@db/postgres_DB
     networks:
       - public-network
       - private-network
@@ -27,9 +27,9 @@ services:
   db:
     image: postgres:11.2-alpine
     environment:
-      POSTGRES_USER: demo_user
-      POSTGRES_PASSWORD: demo_user
-      POSTGRES_DB: demo_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
     volumes:
       - ./sql_scripts/:/docker-entrypoint-initdb.d/init.sql
     networks:
