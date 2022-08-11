@@ -1,5 +1,6 @@
 FROM node:10-alpine
-ENV CONNECTION_STRING=production
+ENV NODE_ENV=production
+ENV CONNECTON_STRING=./db
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install --production --silent && mv node_modules ../
