@@ -4,7 +4,7 @@ services:
   api:
     build: ./api
     environment:
-      - CONNECTION_STRING=postgres://admin:demo_user@db/demo_db
+      - CONNECTION_STRING=postgres://admin:admin@db/demo_db
     depends_on:
       - db
     networks:
@@ -27,7 +27,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: demo_user
+      POSTGRES_PASSWORD: admin
       POSTGRES_DB: demo_db
     volumes:
       - ./sql_scripts/:/docker-entrypoint-initdb.d
