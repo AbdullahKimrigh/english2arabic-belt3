@@ -17,7 +17,7 @@ services:
     build:
       context: ./api
     environment:
-      - CONNECTON_STRING=postgres://user_id:admin@db/postgres_db
+      - CONNECTON_STRING=postgres://postgres:postgres@db/postgres
     networks:
       - public-network
       - private-network
