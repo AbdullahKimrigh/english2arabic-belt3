@@ -22,8 +22,8 @@ app.get("/", function (req, res) {
             responseString +
             `<tr><td>${c_cap[i].english}</td><td>${c_cap[i].arabic}</td></tr>`;
 
-        responseString = responseString + `</table>`;
-        res.send(responseString);
+            responseString = responseString + `</table>`;
+            res.send(responseString);
       } 
       else {
         console.log(err);
