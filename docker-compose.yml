@@ -33,7 +33,9 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
       # to intialize the sql data
-      - ./sql_scripts/init.sql:/docker-entrypoint-initdb.d/
+      - ./sql_scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432"
     networks:
       - private-network
 
