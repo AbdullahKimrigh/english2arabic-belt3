@@ -1,5 +1,5 @@
-import express from "express";
-import request from "request";
+const express = require("express");
+const request = require("request");
 
 const app = express();
 const port = 3000;
