@@ -27,13 +27,14 @@ services:
   db:
     image: postgres:11.2-alpine
     environment:
-      POSTGRES_DB: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_USER: admin
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
     volumes:
       - db-data:/var/lib/postgresql/data
       # to intialize the sql data
-      - ./sql_scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db-data:./sql_scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - /docker-entrypoint-initdb.d/init.sql:/sql_scripts/init.sql
     ports:
       - "5432"
     networks:
