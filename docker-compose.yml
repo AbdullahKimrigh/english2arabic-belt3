@@ -1,23 +1,23 @@
-version: "3.9"
+version: "3.7"
 
 services:
   web:
     build:
       context: ./web
-    command: node index.js
-    volumes:
-     - ./web:/app
+    environment:
+      - API_URL=http://api:3001/data
     ports:
-      - "80:3000"
+      - "3000:3000"
     networks:
       - public-network
     depends_on:
-     - db
+     - api
 
   api:
     build:
       context: ./api
-    command: node index.js
+    environment:
+      - CONNECTON_STRING=postgres://user_id:admin@db/postgres_db
     networks:
       - public-network
       - private-network
@@ -33,9 +33,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
       # to intialize the sql data
-      - ./sql_scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
-    ports:
-      - "5432"
+      - ./sql_scripts/init.sql:/docker-entrypoint-initdb.d
     networks:
       - private-network
 
